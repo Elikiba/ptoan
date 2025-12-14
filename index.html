@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTOAN - Driving Nigeria's Clean Transport Future</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        :root {
+            --deep-green: #0a5c36;
+            --electric-blue: #0066cc;
+            --charcoal: #2c3e50;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --accent-green: #2ecc71;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 700;
+            color: var(--deep-green);
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        /* .logo-img {
+            width: 60px;
+            height: 60px;
+            background-color: var(--deep-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            font-weight: bold;
+        } */
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo-img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+            
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--deep-green);
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--electric-blue);
+        }
+        
+        nav a.active {
+            color: var(--deep-green);
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--electric-blue);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--deep-green);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 92, 54, 0.85), rgba(10, 92, 54, 0.9)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--electric-blue);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #0052a3;
+            transform: translateY(-3px);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--electric-blue);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        /* About Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--electric-blue);
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--deep-green);
+            margin-bottom: 20px;
+        }
+        
+        /* Advocacy Section */
+        .advocacy-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background-color: #f1f1f1;
+            border: none;
+            font-weight: 600;
+            color: var(--charcoal);
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--deep-green);
+            color: var(--white);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .benefit-icon {
+            font-size: 1.5rem;
+            color: var(--electric-blue);
+            margin-top: 5px;
+        }
+        
+        /* Partnerships Section */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .partner-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+        }
+        
+        .partner-logo {
+            font-size: 2.5rem;
+            color: var(--deep-green);
+            margin-bottom: 20px;
+        }
+        
+        /* Membership Form */
+        .membership-form {
+            background-color: var(--light-gray);
+            padding: 50px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .news-image {
+            height: 200px;
+            width: 100%;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--electric-blue);
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo .logo-img {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+        
+        .footer-links h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--electric-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin: 0 0 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .membership-form {
+                padding: 30px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .membership-form {
+                padding: 20px;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="logo.png" alt="PTOAN Logo" style="width: 50px; height: 50px;">
+                </div>
+                <div class="logo-text">
+                    <h1>PTOAN</h1>
+                    <p>Driving Nigeria's Clean Transport Future</p>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#advocacy">CNG & EV Advocacy</a></li>
+                    <li><a href="#partnerships">Partnerships</a></li>
+                    <li><a href="#membership">Membership</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Driving Nigeria's Clean Transport Future</h2>
+            <p>The Professional Transport Officers Association of Nigeria (PTOAN) is a national association focused on transforming Nigeria's transport sector through the introduction, regulation, and promotion of Compressed Natural Gas (CNG) vehicles and Electric Vehicles (EVs).</p>
+            <a href="#membership" class="cta-button">Join PTOAN Today</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About PTOAN</h2>
+            <p class="section-subtitle">PTOAN is a newly established national association with a vision to revolutionize Nigeria's transportation landscape through sustainable energy solutions.</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To lead Nigeria's transition to clean transport by promoting CNG and EV adoption, establishing safety standards, and providing professional training nationwide.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>A Nigeria with a sustainable, efficient, and environmentally-friendly transport system that leverages the nation's natural gas resources and embraces electric mobility.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Our Objectives</h3>
+                    <p>Regulate CNG/EV standards, facilitate training programs, promote nationwide awareness, advocate for supportive policies, and foster international partnerships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CNG & EV Advocacy Section -->
+    <section id="advocacy" style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">CNG & EV Advocacy</h2>
+            <p class="section-subtitle">Promoting clean transport alternatives specifically tailored for Nigeria's unique challenges and opportunities.</p>
+            
+            <div class="advocacy-tabs">
+                <button class="tab-btn active" data-tab="cng">CNG Vehicles</button>
+                <button class="tab-btn" data-tab="ev">Electric Vehicles</button>
+                <button class="tab-btn" data-tab="training">Training & Safety</button>
+            </div>
+            
+            <div class="tab-content active" id="cng-content">
+                <h3 style="text-align: center; margin-bottom: 30px;">Compressed Natural Gas (CNG) for Nigeria</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-gas-pump"></i></div>
+                        <div>
+                            <h4>Cost-Effective Fuel</h4>
+                            <p>CNG is significantly cheaper than petrol or diesel, reducing operating costs by up to 60% for transport operators.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+                        <div>
+                            <h4>Environmental Benefits</h4>
+                            <p>CNG produces 20-30% less CO2 emissions compared to petrol and reduces harmful particulate matter.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-oil-can"></i></div>
+                        <div>
+                            <h4>Utilizing Local Resources</h4>
+                            <p>Nigeria has abundant natural gas reserves, making CNG a strategic energy source for transportation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="ev-content">
+                <h3 style="text-align: center; margin-bottom: 30px;">Electric Vehicles (EVs) for Nigeria</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-charging-station"></i></div>
+                        <div>
+                            <h4>Zero Emissions</h4>
+                            <p>EVs produce no tailpipe emissions, improving urban air quality and public health in Nigerian cities.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                        <div>
+                            <h4>Lower Maintenance</h4>
+                            <p>EVs have fewer moving parts than combustion engines, reducing maintenance costs and downtime.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-solar-panel"></i></div>
+                        <div>
+                            <h4>Renewable Integration</h4>
+                            <p>EV charging can be integrated with Nigeria's growing solar energy infrastructure for sustainable mobility.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="training-content">
+                <h3 style="text-align: center; margin-bottom: 30px;">Training & Safety Standards</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div>
+                            <h4>Certification Programs</h4>
+                            <p>PTOAN offers certified training programs for CNG/EV mechanics, technicians, and safety inspectors.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <h4>Safety Protocols</h4>
+                            <p>Developing and implementing Nigeria-specific safety standards for CNG/EV infrastructure and operations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                        <div>
+                            <h4>Awareness Campaigns</h4>
+                            <p>Nationwide public awareness initiatives to educate Nigerians about clean transport benefits and safety.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnerships Section -->
+    <section id="partnerships">
+        <div class="container">
+            <h2 class="section-title">Strategic Partnerships</h2>
+            <p class="section-subtitle">PTOAN is actively engaged with international and local partners to advance Nigeria's clean transport agenda.</p>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo"><i class="fas fa-charging-station"></i></div>
+                    <h3>EV Manufacturers</h3>
+                    <p>Ongoing discussions with leading global EV companies to establish local assembly plants and service centers in Nigeria.</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-logo"><i class="fas fa-gas-pump"></i></div>
+                    <h3>CNG Infrastructure</h3>
+                    <p>Collaborating with international energy firms to develop Nigeria's CNG refueling network and conversion centers.</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-logo"><i class="fas fa-university"></i></div>
+                    <h3>Government Agencies</h3>
+                    <p>Working with federal and state transport ministries to develop supportive policies and regulations for clean transport.</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-logo"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Training Institutions</h3>
+                    <p>Partnering with technical schools and universities to develop curriculum for CNG/EV maintenance and safety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">Join PTOAN</h2>
+            <p class="section-subtitle">Become a member of Nigeria's leading clean transport association and contribute to the transformation of our nation's transportation sector.</p>
+            
+            <div class="membership-form">
+                <h3 style="text-align: center; margin-bottom: 30px;">Membership Registration</h3>
+                
+                <form id="membershipForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization">Organization</label>
+                        <input type="text" id="organization" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="membershipType">Membership Type *</label>
+                        <select id="membershipType" class="form-control" required>
+                            <option value="">Select membership type</option>
+                            <option value="individual">Individual Professional</option>
+                            <option value="transport-company">Transport Company</option>
+                            <option value="cng-ev-business">CNG/EV Business</option>
+                            <option value="government">Government Agency</option>
+                            <option value="academic">Academic Institution</option>
+                            <option value="student">Student</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Why do you want to join PTOAN?</label>
+                        <textarea id="message" class="form-control" rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%;">Submit Membership Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news">
+        <div class="container">
+            <h2 class="section-title">News & Updates</h2>
+            <p class="section-subtitle">Stay informed about the latest developments in Nigeria's clean transport sector and PTOAN activities.</p>
+            
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1593941707882-a5bba5338fe2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="news-content">
+                        <div class="news-date">June 15, 2023</div>
+                        <h3>PTOAN Launches National CNG Safety Training Program</h3>
+                        <p>The association has launched a nationwide training initiative for CNG vehicle mechanics and safety inspectors across six geopolitical zones.</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="news-content">
+                        <div class="news-date">May 28, 2023</div>
+                        <h3>Federal Government Approves New EV Policy Framework</h3>
+                        <p>Nigeria's government has approved a new electric vehicle policy framework with PTOAN playing a key advisory role in its development.</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="news-content">
+                        <div class="news-date">April 12, 2023</div>
+                        <h3>PTOAN Partners with International EV Manufacturers</h3>
+                        <p>The association has signed MOUs with three leading electric vehicle manufacturers to explore local assembly opportunities in Nigeria.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: var(--charcoal); color: white;">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Contact PTOAN</h2>
+            <p class="section-subtitle" style="color: #ccc;">Get in touch with us for inquiries, partnerships, or media requests.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3 style="color: white;">Headquarters</h3>
+                            <!-- <p>PTOAN National Secretariat<br>Plot 1234, Transport House<br>Central Business District, Abuja</p> -->
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <!-- <div>
+                            <h3 style="color: white;">Phone & Email</h3>
+                            <p>+234 800 000 PTOAN<br>info@ptoan.org.ng<br>membership@ptoan.org.ng</p>
+                        </div> -->
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <h3 style="color: white;">WhatsApp</h3>
+                            <p>For immediate assistance, contact us on WhatsApp</p>
+                            <a href="https://wa.me/07067826432" class="whatsapp-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Message Us on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="margin-bottom: 20px; color: white;">Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName" style="color: white;">Your Name *</label>
+                            <input type="text" id="contactName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail" style="color: white;">Email Address *</label>
+                            <input type="email" id="contactEmail" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" style="color: white;">Subject</label>
+                            <input type="text" id="subject" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage" style="color: white;">Your Message *</label>
+                            <textarea id="contactMessage" class="form-control" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <div class="logo-img">PTOAN</div>
+                        <div class="logo-text">
+                            <h1>PTOAN</h1>
+                            <p>Professional Transport Officers Association of Nigeria</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px; color: #ccc;">Driving Nigeria's Clean Transport Future through CNG and Electric Vehicle adoption, regulation, and promotion.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About PTOAN</a></li>
+                        <li><a href="#advocacy">CNG & EV Advocacy</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="#news">News & Updates</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">CNG Safety Guidelines</a></li>
+                        <li><a href="#">EV Charging Infrastructure</a></li>
+                        <li><a href="#">Training Programs</a></li>
+                        <li><a href="#">Policy Documents</a></li>
+                        <li><a href="#">Research Publications</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Professional Transport Officers Association of Nigeria (PTOAN). All Rights Reserved.</p>
+                <p style="margin-top: 10px;">Designed for Nigeria's clean transport future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Tab Functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab') + '-content';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Form Submission
+        const membershipForm = document.getElementById('membershipForm');
+        const contactForm = document.getElementById('contactForm');
+        
+        membershipForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your membership application! We will contact you shortly.');
+            membershipForm.reset();
+        });
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will respond within 24-48 hours.');
+            contactForm.reset();
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Close mobile menu if open
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
